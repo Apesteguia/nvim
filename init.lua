@@ -9,6 +9,7 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 vim.opt.guicursor = ''
 vim.opt.fillchars:append { eob = ' ' }
+vim.opt.shortmess = 'I'
 
 -- Set to true if you have a Nerd Font installed and selected in the terminal
 vim.g.have_nerd_font = true

@@ -8,6 +8,7 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 vim.opt.guicursor = ''
+vim.opt.fillchars:append { eob = ' ' }
 
 -- Set to true if you have a Nerd Font installed and selected in the terminal
 vim.g.have_nerd_font = true
@@ -536,7 +537,7 @@ require('lazy').setup({
         ocamllsp = {},
         zls = {},
         elixirls = {},
-        tsserver = {},
+        --tsserver = {},
         pyright = {},
         rust_analyzer = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
@@ -630,7 +631,8 @@ require('lazy').setup({
       formatters_by_ft = {
         lua = { 'stylua' },
         -- Conform can also run multiple formatters sequentially
-        -- python = { "isort", "black" },
+        python = { 'isort', 'black' },
+        ruby = { 'rubocop' },
         --
         -- You can use 'stop_after_first' to run the first available formatter from the list
         -- javascript = { "prettierd", "prettier", stop_after_first = true },
@@ -638,9 +640,25 @@ require('lazy').setup({
     },
   },
 
+  { 'slugbyte/lackluster.nvim' },
+
+  { 'nvim-java/nvim-java' },
+
   {
     'apesteguia/apmin.nvim',
     name = 'apesteguia',
+  },
+
+  -- Lua
+  {
+    'tjdevries/colorbuddy.nvim',
+  },
+
+  { 'frenzyexists/aquarium-vim' },
+
+  {
+    'rose-pine/neovim',
+    name = 'rose-pine',
   },
 
   { -- Autocompletion
@@ -770,7 +788,7 @@ require('lazy').setup({
       -- Load the colorscheme here.
       -- Like many other themes, this one has different styles, and you could load
       -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
-      vim.cmd.colorscheme 'apesteguia'
+      vim.cmd.colorscheme 'gruvbuddy'
 
       -- You can configure highlights by doing something like:
       vim.cmd.hi 'Comment gui=none'
